@@ -3,3 +3,7 @@ module "mongodb" {
   ENV    = var.ENV
 }
 
+module "redis" {
+  source = "./vendor/modules/redis"
+  ENV    = var.ENV
+}
