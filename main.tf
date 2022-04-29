@@ -1,6 +1,7 @@
 module "mongodb" {
-  source = "./vendor/modules/mongodb"
-  ENV    = var.ENV
+  source         = "./vendor/modules/mongodb"
+  ENV            = var.ENV
+  WORKSTATION_IP = var.WORKSTATION_IP
 }
 
 module "redis" {
@@ -9,8 +10,9 @@ module "redis" {
 }
 
 module "mysql" {
-  source = "./vendor/modules/mysql"
-  ENV    = var.ENV
+  source         = "./vendor/modules/mysql"
+  ENV            = var.ENV
+  WORKSTATION_IP = var.WORKSTATION_IP
 }
 
 module "rabbitmq" {
