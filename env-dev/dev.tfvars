@@ -1,2 +1,2 @@
 ENV            = "dev"
-WORKSTATION_IP = "172.31.15.197"
+WORKSTATION_IP = "172.31.15.197/32"
