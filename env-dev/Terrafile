@@ -10,3 +10,7 @@ mysql:
   source:  "https://github.com/raghudevopsb63/tf-module-mysql.git"
   version: "main"
 
+rabbitmq:
+  source:  "https://github.com/raghudevopsb63/tf-module-rabbitmq.git"
+  version: "main"
+
