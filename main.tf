@@ -20,3 +20,6 @@ module "rabbitmq" {
   ENV    = var.ENV
 }
 
+output "redis" {
+  value = module.redis.redis
+}
