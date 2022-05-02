@@ -19,7 +19,3 @@ module "rabbitmq" {
   source = "./vendor/modules/rabbitmq"
   ENV    = var.ENV
 }
-
-output "rabbitmq" {
-  value = module.rabbitmq.rabbitmq
-}
