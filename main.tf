@@ -34,6 +34,3 @@ module "rabbitmq" {
   RABBITMQ_INSTANCE_TYPE  = var.RABBITMQ_INSTANCE_TYPE
 }
 
-output "data" {
-  value = module.mongodb.data
-}
