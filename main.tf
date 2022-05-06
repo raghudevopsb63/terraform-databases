@@ -5,7 +5,6 @@ module "mongodb" {
   DOCUMENTDB_PORT           = var.DOCUMENTDB_PORT
   DOCUMENTDB_INSTANCE_CLASS = var.DOCUMENTDB_INSTANCE_CLASS
   DOCUMENTDB_INSTANCE_COUNT = var.DOCUMENTDB_INSTANCE_COUNT
-  SECRET_ID                 = aws_secretsmanager_secret.db-config.id
 }
 
 module "redis" {
@@ -25,7 +24,6 @@ module "mysql" {
   RDS_MYSQL_STORAGE  = var.RDS_MYSQL_STORAGE
   RDS_ENGINE_VERSION = var.RDS_ENGINE_VERSION
   RDS_INSTANCE_TYPE  = var.RDS_INSTANCE_TYPE
-  SECRET_ID          = aws_secretsmanager_secret.db-config.id
 }
 
 module "rabbitmq" {
@@ -38,4 +36,9 @@ module "rabbitmq" {
 
 resource "aws_secretsmanager_secret" "db-config" {
   name = "${var.ENV}/roboshop/db-config"
+}
+
+resource "aws_secretsmanager_secret_version" "mysql-url" {
+  secret_id     = aws_secretsmanager_secret.db-config.id
+  secret_string = jsonencode({ "MONGODB_ENDPOINT" = module.mongodb.MONGODB_ENDPOINT, "MYSQL_ENDPOINT" = module.mysql.MYSQL_ENDPOINT })
 }
