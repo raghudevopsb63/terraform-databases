@@ -25,6 +25,7 @@ module "mysql" {
   RDS_MYSQL_STORAGE  = var.RDS_MYSQL_STORAGE
   RDS_ENGINE_VERSION = var.RDS_ENGINE_VERSION
   RDS_INSTANCE_TYPE  = var.RDS_INSTANCE_TYPE
+  SECRET_ID          = aws_secretsmanager_secret.db-config.id
 }
 
 module "rabbitmq" {
