@@ -5,6 +5,7 @@ module "mongodb" {
   DOCUMENTDB_PORT           = var.DOCUMENTDB_PORT
   DOCUMENTDB_INSTANCE_CLASS = var.DOCUMENTDB_INSTANCE_CLASS
   DOCUMENTDB_INSTANCE_COUNT = var.DOCUMENTDB_INSTANCE_COUNT
+  SECRET_ID                 = aws_secretsmanager_secret.db-config.id
 }
 
 module "redis" {
@@ -34,3 +35,6 @@ module "rabbitmq" {
   RABBITMQ_INSTANCE_TYPE  = var.RABBITMQ_INSTANCE_TYPE
 }
 
+resource "aws_secretsmanager_secret" "db-config" {
+  name = "${var.ENV}/roboshop/db-config"
+}
