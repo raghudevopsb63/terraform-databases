@@ -34,6 +34,6 @@ module "rabbitmq" {
   RABBITMQ_INSTANCE_TYPE  = var.RABBITMQ_INSTANCE_TYPE
 }
 
-ouptut "MONGODB_ENDPOINT" {
+output "MONGODB_ENDPOINT" {
   value = module.mongodb.MONGODB_ENDPOINT
 }
