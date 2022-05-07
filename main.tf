@@ -34,11 +34,6 @@ module "rabbitmq" {
   RABBITMQ_INSTANCE_TYPE  = var.RABBITMQ_INSTANCE_TYPE
 }
 
-resource "aws_secretsmanager_secret" "db-config" {
-  name = "${var.ENV}/roboshop/db-config"
-}
-
-resource "aws_secretsmanager_secret_version" "mysql-url" {
-  secret_id     = aws_secretsmanager_secret.db-config.id
-  secret_string = jsonencode({ "MONGODB_ENDPOINT" = module.mongodb.MONGODB_ENDPOINT, "MYSQL_ENDPOINT" = module.mysql.MYSQL_ENDPOINT })
+ouptut "MONGODB_ENDPOINT" {
+  value = module.mongodb.MONGODB_ENDPOINT
 }
