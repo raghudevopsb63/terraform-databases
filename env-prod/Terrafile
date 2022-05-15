@@ -1,0 +1,16 @@
+mongodb:
+  source:  "https://github.com/raghudevopsb63/tf-module-mongodb.git"
+  version: "main"
+
+redis:
+  source:  "https://github.com/raghudevopsb63/tf-module-redis.git"
+  version: "main"
+
+mysql:
+  source:  "https://github.com/raghudevopsb63/tf-module-mysql.git"
+  version: "main"
+
+rabbitmq:
+  source:  "https://github.com/raghudevopsb63/tf-module-rabbitmq.git"
+  version: "main"
+
